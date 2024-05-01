@@ -17,6 +17,10 @@ import { Currency } from './currencies/currency.entity';
 import { CurrenciesModule } from './currencies/currencies.module';
 import { CurrenciesController } from './currencies/currencies.controller';
 import { CurrenciesService } from './currencies/currencies.service';
+import { Passport } from './passports/passport.entity';
+import { PassportsModule } from './passports/passports.module';
+import { PassportsController } from './passports/passports.controller';
+import { PassportsService } from './passports/passports.service';
 import { Type } from './types/type.entity';
 import { TypesModule } from './types/types.module';
 import { TypesController } from './types/types.controller';
@@ -32,7 +36,7 @@ import { TypesService } from './types/types.service';
       username: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DB,
-      entities: [User, Account, Currency, Type, Card],
+      entities: [User, Account, Currency, Type, Card, Passport],
       synchronize: true,
     }),
     UsersModule,
@@ -40,6 +44,7 @@ import { TypesService } from './types/types.service';
     CurrenciesModule,
     TypesModule,
     CardsModule,
+    PassportsModule,
   ],
   controllers: [
     UsersController,
@@ -47,6 +52,7 @@ import { TypesService } from './types/types.service';
     CurrenciesController,
     TypesController,
     CardsController,
+    PassportsController,
   ],
   providers: [
     UsersService,
@@ -54,6 +60,7 @@ import { TypesService } from './types/types.service';
     CurrenciesService,
     TypesService,
     CardsService,
+    PassportsService,
   ],
 })
 export class AppModule {}
