@@ -4,5 +4,5 @@ export class CreateCardDto {
   encryptedExpiryYear: string;
   encryptedSecurityCode: string;
   accountId: string;
-  typeId: string;
+  cardTypeId: string;
 }

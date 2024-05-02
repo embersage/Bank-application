@@ -6,18 +6,17 @@ import {
   UpdateDateColumn,
   OneToMany,
   Relation,
+  ManyToOne,
 } from 'typeorm';
+import { City } from 'src/cities/city.entity';
 
-@Entity({ name: 'currencies' })
-export class Currency {
+@Entity({ name: 'streets' })
+export class Street {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column({ type: 'varchar', nullable: false, unique: true })
   name: string;
-
-  @Column({ type: 'varchar', nullable: false })
-  sign: string;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -25,6 +24,9 @@ export class Currency {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => Currency, (currency) => currency.accounts)
-  accounts!: Relation<Currency>[];
+  @OneToMany(() => Street, (street) => street.addresses)
+  addresses!: Relation<Street>[];
+
+  @ManyToOne(() => City, (province) => province.streets)
+  province!: Relation<City>;
 }

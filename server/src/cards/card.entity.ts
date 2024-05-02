@@ -2,13 +2,15 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
   ManyToOne,
   Relation,
 } from 'typeorm';
 import { Account } from 'src/accounts/account.entity';
-import { Type } from 'src/types/type.entity';
+import { CardType } from 'src/cardTypes/cardType.entity';
 
-@Entity()
+@Entity({ name: 'cards' })
 export class Card {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -25,9 +27,15 @@ export class Card {
   @Column({ type: 'varchar', nullable: false })
   encryptedSecurityCode: string;
 
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
   @ManyToOne(() => Account, (account) => account.cards)
   account!: Relation<Account>;
 
-  @ManyToOne(() => Type, (type) => type.cards)
-  type!: Relation<Type>;
+  @ManyToOne(() => CardType, (cardType) => cardType.cards)
+  cardType!: Relation<CardType>;
 }

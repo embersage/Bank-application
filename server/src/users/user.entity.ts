@@ -2,12 +2,16 @@ import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
   OneToMany,
   Relation,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
-import { Account } from 'src/accounts/account.entity';
+import { Passport } from 'src/passports/passport.entity';
 
-@Entity()
+@Entity({ name: 'users' })
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -30,6 +34,16 @@ export class User {
   @Column({ type: 'varchar', nullable: false })
   encryptedPassword: string;
 
-  @OneToMany(() => Account, (account) => account.user)
-  accounts!: Relation<Account>[];
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @OneToMany(() => User, (user) => user.accounts)
+  accounts!: Relation<User>[];
+
+  @OneToOne(() => Passport)
+  @JoinColumn()
+  passport: Passport;
 }

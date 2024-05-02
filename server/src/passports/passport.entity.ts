@@ -1,13 +1,15 @@
+import { Address } from 'src/addresses/address.entity';
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { User } from 'src/users/user.entity';
 
-@Entity()
+@Entity({ name: 'passports' })
 export class Passport {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -18,7 +20,13 @@ export class Passport {
   @Column({ type: 'int', nullable: false })
   number: number;
 
-  @OneToOne(() => User)
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
+
+  @OneToOne(() => Address)
   @JoinColumn()
-  user: User;
+  address: Address;
 }

@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CreateTypeDto } from './dto/create-type.dto';
-import { Type } from './type.entity';
+import { CreateOperationTypeDto } from './dto/create-operationType.dto';
+import { OperationType } from './operationType.entity';
 
 @Injectable()
-export class TypesService {
+export class OperationTypesService {
   constructor(
-    @InjectRepository(Type)
-    private typesRepository: Repository<Type>,
+    @InjectRepository(OperationType)
+    private typesRepository: Repository<OperationType>,
   ) {}
 
-  async create(createTypeDto: CreateTypeDto) {
+  async create(createTypeDto: CreateOperationTypeDto) {
     const type = await this.typesRepository.create(createTypeDto);
     return type;
   }

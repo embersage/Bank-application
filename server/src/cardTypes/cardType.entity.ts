@@ -8,16 +8,13 @@ import {
   Relation,
 } from 'typeorm';
 
-@Entity({ name: 'currencies' })
-export class Currency {
+@Entity({ name: 'cardTypes' })
+export class CardType {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'varchar', nullable: false, unique: true })
-  name: string;
-
   @Column({ type: 'varchar', nullable: false })
-  sign: string;
+  name: string;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -25,6 +22,6 @@ export class Currency {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => Currency, (currency) => currency.accounts)
-  accounts!: Relation<Currency>[];
+  @OneToMany(() => CardType, (cardType) => cardType.cards)
+  cards!: Relation<CardType>[];
 }
