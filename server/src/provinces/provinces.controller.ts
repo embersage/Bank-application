@@ -7,8 +7,8 @@ export class ProvincesController {
   constructor(private readonly provincesService: ProvincesService) {}
 
   @Post()
-  create(@Body() createProvinceDto: CreateProvinceDto) {
-    return this.provincesService.create(createProvinceDto);
+  create(@Body() dto: CreateProvinceDto) {
+    return this.provincesService.create(dto);
   }
 
   @Get()

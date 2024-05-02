@@ -33,9 +33,11 @@ export class Card {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => Account, (account) => account.cards)
+  @ManyToOne(() => Account, (account) => account.cards, { onDelete: 'CASCADE' })
   account!: Relation<Account>;
 
-  @ManyToOne(() => CardType, (cardType) => cardType.cards)
+  @ManyToOne(() => CardType, (cardType) => cardType.cards, {
+    onDelete: 'CASCADE',
+  })
   cardType!: Relation<CardType>;
 }

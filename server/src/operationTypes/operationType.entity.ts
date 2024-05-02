@@ -22,6 +22,6 @@ export class OperationType {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => OperationType, (type) => type.operations)
+  @OneToMany(() => OperationType, (operationType) => operationType.operations)
   operations!: Relation<OperationType>[];
 }

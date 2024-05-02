@@ -24,9 +24,13 @@ export class Operation {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne(() => Account, (account) => account.operations)
+  @ManyToOne(() => Account, (account) => account.operations, {
+    onDelete: 'CASCADE',
+  })
   account!: Relation<Account>;
 
-  @ManyToOne(() => OperationType, (operationType) => operationType.operations)
+  @ManyToOne(() => OperationType, (operationType) => operationType.operations, {
+    onDelete: 'CASCADE',
+  })
   operationType!: Relation<OperationType>;
 }

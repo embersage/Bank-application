@@ -11,8 +11,8 @@ export class CountriesService {
     private countriesRepository: Repository<Country>,
   ) {}
 
-  async create(createCountryDto: CreateCountryDto) {
-    const country = await this.countriesRepository.save(createCountryDto);
+  async create(dto: CreateCountryDto) {
+    const country = await this.countriesRepository.save(dto);
     return country;
   }
 

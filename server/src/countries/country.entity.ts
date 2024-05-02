@@ -22,9 +22,6 @@ export class Country {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => Country, (country) => country.addresses)
-  addresses!: Relation<Country>[];
-
   @OneToMany(() => Country, (country) => country.provinces)
   provinces!: Relation<Country>[];
 }

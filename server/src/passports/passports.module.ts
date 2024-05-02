@@ -8,5 +8,6 @@ import { PassportsController } from './passports.controller';
   imports: [TypeOrmModule.forFeature([Passport])],
   providers: [PassportsService],
   controllers: [PassportsController],
+  exports: [PassportsService],
 })
 export class PassportsModule {}

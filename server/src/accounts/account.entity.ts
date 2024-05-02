@@ -31,9 +31,11 @@ export class Account {
   @OneToMany(() => Account, (account) => account.operations)
   operations!: Relation<Account>[];
 
-  @ManyToOne(() => User, (user) => user.accounts)
+  @ManyToOne(() => User, (user) => user.accounts, { onDelete: 'CASCADE' })
   user!: Relation<User>;
 
-  @ManyToOne(() => Currency, (currency) => currency.accounts)
+  @ManyToOne(() => Currency, (currency) => currency.accounts, {
+    onDelete: 'CASCADE',
+  })
   currency!: Relation<Currency>;
 }

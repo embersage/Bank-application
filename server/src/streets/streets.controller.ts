@@ -7,8 +7,8 @@ export class StreetsController {
   constructor(private readonly streetsService: StreetsService) {}
 
   @Post()
-  create(@Body() createStreetDto: CreateStreetDto) {
-    return this.streetsService.create(createStreetDto);
+  create(@Body() dto: CreateStreetDto) {
+    return this.streetsService.create(dto);
   }
 
   @Get()

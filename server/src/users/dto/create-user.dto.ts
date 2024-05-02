@@ -5,4 +5,5 @@ export class CreateUserDto {
   email: string;
   phoneNumber: string;
   encryptedPassword: string;
+  passportId: string;
 }

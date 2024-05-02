@@ -8,5 +8,6 @@ import { OperationTypesController } from './operationTypes.controller';
   imports: [TypeOrmModule.forFeature([OperationType])],
   providers: [OperationTypesService],
   controllers: [OperationTypesController],
+  exports: [OperationTypesService],
 })
 export class OperationTypesModule {}

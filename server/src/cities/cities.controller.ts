@@ -7,8 +7,8 @@ export class CitiesController {
   constructor(private readonly citiesService: CitiesService) {}
 
   @Post()
-  create(@Body() createCityDto: CreateCityDto) {
-    return this.citiesService.create(createCityDto);
+  create(@Body() dto: CreateCityDto) {
+    return this.citiesService.create(dto);
   }
 
   @Get()

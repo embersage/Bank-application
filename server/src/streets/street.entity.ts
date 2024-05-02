@@ -4,7 +4,6 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
   Relation,
   ManyToOne,
 } from 'typeorm';
@@ -24,9 +23,6 @@ export class Street {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => Street, (street) => street.addresses)
-  addresses!: Relation<Street>[];
-
-  @ManyToOne(() => City, (city) => city.streets)
+  @ManyToOne(() => City, (city) => city.streets, { onDelete: 'CASCADE' })
   city!: Relation<City>;
 }

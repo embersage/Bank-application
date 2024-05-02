@@ -8,5 +8,6 @@ import { CardTypesController } from './cardTypes.controller';
   imports: [TypeOrmModule.forFeature([CardType])],
   providers: [CardTypesService],
   controllers: [CardTypesController],
+  exports: [CardTypesService],
 })
 export class CardTypesModule {}

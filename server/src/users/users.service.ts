@@ -3,16 +3,19 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { User } from './user.entity';
+import { PassportsService } from 'src/passports/passports.service';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    private passportsService: PassportsService,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
-    const user = await this.usersRepository.save(createUserDto);
+  async create(dto: CreateUserDto) {
+    const passport = await this.passportsService.findOne(dto.passportId);
+    const user = await this.usersRepository.save({ ...dto, passport });
     return user;
   }
 

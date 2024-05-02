@@ -17,8 +17,6 @@ import { OperationType } from './operationTypes/operationType.entity';
 import { OperationTypesModule } from './operationTypes/operationTypes.module';
 import { Operation } from './operations/operation.entity';
 import { OperationsModule } from './operations/operations.module';
-import { Address } from './addresses/address.entity';
-import { AddressesModule } from './addresses/addresses.module';
 import { Country } from './countries/country.entity';
 import { CountriesModule } from './countries/countries.module';
 import { Province } from './provinces/province.entity';
@@ -47,7 +45,6 @@ import { StreetsModule } from './streets/streets.module';
         Passport,
         OperationType,
         Operation,
-        Address,
         Country,
         Province,
         City,
@@ -63,7 +60,6 @@ import { StreetsModule } from './streets/streets.module';
     PassportsModule,
     OperationTypesModule,
     OperationsModule,
-    AddressesModule,
     CountriesModule,
     ProvincesModule,
     CitiesModule,

@@ -8,26 +8,26 @@ import { OperationType } from './operationType.entity';
 export class OperationTypesService {
   constructor(
     @InjectRepository(OperationType)
-    private typesRepository: Repository<OperationType>,
+    private operationTypesRepository: Repository<OperationType>,
   ) {}
 
-  async create(createTypeDto: CreateOperationTypeDto) {
-    const type = await this.typesRepository.save(createTypeDto);
-    return type;
+  async create(dto: CreateOperationTypeDto) {
+    const operationType = await this.operationTypesRepository.save(dto);
+    return operationType;
   }
 
   async findAll() {
-    const types = await this.typesRepository.find();
-    return types;
+    const operationTypes = await this.operationTypesRepository.find();
+    return operationTypes;
   }
 
   async findOne(id: string) {
-    const type = this.typesRepository.findOneBy({ id });
-    return type;
+    const operationType = await this.operationTypesRepository.findOneBy({ id });
+    return operationType;
   }
 
   async remove(id: string) {
-    const type = await this.typesRepository.delete(id);
-    return type;
+    const operationType = await this.operationTypesRepository.delete(id);
+    return operationType;
   }
 }
