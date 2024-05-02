@@ -12,7 +12,7 @@ export class PassportsService {
   ) {}
 
   async create(createPassportDto: CreatePassportDto) {
-    const passport = await this.passportRepository.create(createPassportDto);
+    const passport = await this.passportRepository.save(createPassportDto);
     return passport;
   }
 

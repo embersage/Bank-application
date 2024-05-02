@@ -12,7 +12,7 @@ export class ProvincesService {
   ) {}
 
   async create(createProvinceDto: CreateProvinceDto) {
-    const province = await this.provincesRepository.create(createProvinceDto);
+    const province = await this.provincesRepository.save(createProvinceDto);
     return province;
   }
 

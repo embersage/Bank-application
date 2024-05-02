@@ -12,7 +12,7 @@ export class OperationTypesService {
   ) {}
 
   async create(createTypeDto: CreateOperationTypeDto) {
-    const type = await this.typesRepository.create(createTypeDto);
+    const type = await this.typesRepository.save(createTypeDto);
     return type;
   }
 

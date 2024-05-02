@@ -12,7 +12,7 @@ export class AddressesService {
   ) {}
 
   async create(createAddressDto: CreateAddressDto) {
-    const address = await this.addressesRepository.create(createAddressDto);
+    const address = await this.addressesRepository.save(createAddressDto);
     return address;
   }
 

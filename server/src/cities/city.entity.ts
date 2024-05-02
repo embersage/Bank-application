@@ -31,5 +31,5 @@ export class City {
   streets!: Relation<City>[];
 
   @ManyToOne(() => Province, (province) => province.cities)
-  country!: Relation<Province>;
+  province!: Relation<Province>;
 }

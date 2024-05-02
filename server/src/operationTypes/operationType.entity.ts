@@ -8,7 +8,7 @@ import {
   Relation,
 } from 'typeorm';
 
-@Entity({ name: 'operationTypes' })
+@Entity({ name: 'operation_types' })
 export class OperationType {
   @PrimaryGeneratedColumn('uuid')
   id: string;

@@ -12,7 +12,7 @@ export class CardTypesService {
   ) {}
 
   async create(createTypeDto: CreateCardTypeDto) {
-    const type = await this.typesRepository.create(createTypeDto);
+    const type = await this.typesRepository.save(createTypeDto);
     return type;
   }
 

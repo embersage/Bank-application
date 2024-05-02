@@ -15,7 +15,7 @@ export class Street {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'varchar', nullable: false, unique: true })
+  @Column({ type: 'varchar', nullable: false })
   name: string;
 
   @CreateDateColumn()
@@ -27,6 +27,6 @@ export class Street {
   @OneToMany(() => Street, (street) => street.addresses)
   addresses!: Relation<Street>[];
 
-  @ManyToOne(() => City, (province) => province.streets)
-  province!: Relation<City>;
+  @ManyToOne(() => City, (city) => city.streets)
+  city!: Relation<City>;
 }

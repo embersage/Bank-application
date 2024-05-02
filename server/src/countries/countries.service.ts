@@ -12,7 +12,7 @@ export class CountriesService {
   ) {}
 
   async create(createCountryDto: CreateCountryDto) {
-    const country = await this.countriesRepository.create(createCountryDto);
+    const country = await this.countriesRepository.save(createCountryDto);
     return country;
   }
 
@@ -22,7 +22,7 @@ export class CountriesService {
   }
 
   async findOne(id: string) {
-    const country = this.countriesRepository.findOneBy({ id });
+    const country = await this.countriesRepository.findOneBy({ id });
     return country;
   }
 

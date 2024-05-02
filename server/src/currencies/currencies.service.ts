@@ -12,7 +12,7 @@ export class CurrenciesService {
   ) {}
 
   async create(createCurrencyDto: CreateCurrencyDto) {
-    const currency = await this.currenciesRepository.create(createCurrencyDto);
+    const currency = await this.currenciesRepository.save(createCurrencyDto);
     return currency;
   }
 

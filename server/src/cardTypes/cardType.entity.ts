@@ -8,7 +8,7 @@ import {
   Relation,
 } from 'typeorm';
 
-@Entity({ name: 'cardTypes' })
+@Entity({ name: 'card_types' })
 export class CardType {
   @PrimaryGeneratedColumn('uuid')
   id: string;

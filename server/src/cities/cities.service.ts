@@ -12,7 +12,7 @@ export class CitiesService {
   ) {}
 
   async create(createCityDto: CreateCityDto) {
-    const city = await this.citiesRepository.create(createCityDto);
+    const city = await this.citiesRepository.save(createCityDto);
     return city;
   }
 

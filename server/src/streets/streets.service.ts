@@ -12,7 +12,7 @@ export class StreetsService {
   ) {}
 
   async create(createStreetDto: CreateStreetDto) {
-    const street = await this.streetsRepository.create(createStreetDto);
+    const street = await this.streetsRepository.save(createStreetDto);
     return street;
   }
 

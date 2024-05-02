@@ -12,7 +12,7 @@ export class AccountsService {
   ) {}
 
   async create(createAccountDto: CreateAccountDto) {
-    const account = await this.accountsRepository.create(createAccountDto);
+    const account = await this.accountsRepository.save(createAccountDto);
     return account;
   }
 

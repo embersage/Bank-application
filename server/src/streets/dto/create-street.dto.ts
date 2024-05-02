@@ -1,4 +1,4 @@
 export class CreateStreetDto {
-  name: string;
-  cityId: string;
+  readonly name: string;
+  readonly cityId: string;
 }

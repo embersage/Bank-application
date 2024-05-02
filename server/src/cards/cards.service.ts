@@ -12,7 +12,7 @@ export class CardsService {
   ) {}
 
   async create(createCardDto: CreateCardDto) {
-    const card = await this.cardsRepository.create(createCardDto);
+    const card = await this.cardsRepository.save(createCardDto);
     return card;
   }
 

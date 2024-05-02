@@ -12,8 +12,7 @@ export class OperationsService {
   ) {}
 
   async create(createOperationDto: CreateOperationDto) {
-    const operation =
-      await this.operationsRepository.create(createOperationDto);
+    const operation = await this.operationsRepository.save(createOperationDto);
     return operation;
   }
 
