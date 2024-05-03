@@ -10,15 +10,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/material": "^5.15.16",
+    "@mui/styled-engine-sc": "6.0.0-alpha.18",
+    "axios": "^1.6.8",
+    "effector": "^23.2.1",
+    "effector-react": "^23.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0",
+    "styled-components": "^6.1.9"
   },
   "devDependencies": {
+    "@types/node": "^20.12.8",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "effector-logger": "^0.15.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
