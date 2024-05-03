@@ -15,17 +15,26 @@ export class UsersService {
 
   async create(dto: CreateUserDto) {
     const passport = await this.passportsService.findOne(dto.passportId);
-    const user = await this.usersRepository.save({ ...dto, passport });
+    const user = await this.usersRepository.save({
+      ...dto,
+      encryptedPassword: dto.password,
+      passport,
+    });
     return user;
   }
 
   async findAll() {
-    const users = await this.usersRepository.find();
+    const users = await this.usersRepository.find({ relations: ['passport'] });
     return users;
   }
 
   async findOne(id: string) {
-    const user = this.usersRepository.findOneBy({ id });
+    const user = await this.usersRepository.findOneBy({ id });
+    return user;
+  }
+
+  async findOneByEmail(email: string) {
+    const user = await this.usersRepository.findOne({ where: { email } });
     return user;
   }
 

@@ -27,7 +27,9 @@ export class AccountsService {
   }
 
   async findAll() {
-    const accounts = await this.accountsRepository.find();
+    const accounts = await this.accountsRepository.find({
+      relations: ['user', 'currency'],
+    });
     return accounts;
   }
 

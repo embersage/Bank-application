@@ -25,6 +25,7 @@ import { City } from './cities/city.entity';
 import { CitiesModule } from './cities/cities.module';
 import { Street } from './streets/street.entity';
 import { StreetsModule } from './streets/streets.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -64,6 +65,7 @@ import { StreetsModule } from './streets/streets.module';
     ProvincesModule,
     CitiesModule,
     StreetsModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
