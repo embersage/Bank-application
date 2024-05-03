@@ -16,7 +16,7 @@ export class Account {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'int', nullable: false })
+  @Column({ type: 'int', nullable: false, default: 0 })
   amount: number;
 
   @CreateDateColumn()
@@ -31,9 +31,11 @@ export class Account {
   @OneToMany(() => Account, (account) => account.operations)
   operations!: Relation<Account>[];
 
-  @ManyToOne(() => User, (user) => user.accounts)
+  @ManyToOne(() => User, (user) => user.accounts, { onDelete: 'CASCADE' })
   user!: Relation<User>;
 
-  @ManyToOne(() => Currency, (currency) => currency.accounts)
+  @ManyToOne(() => Currency, (currency) => currency.accounts, {
+    onDelete: 'CASCADE',
+  })
   currency!: Relation<Currency>;
 }

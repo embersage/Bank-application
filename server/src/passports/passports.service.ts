@@ -11,14 +11,14 @@ export class PassportsService {
     private passportRepository: Repository<Passport>,
   ) {}
 
-  async create(createPassportDto: CreatePassportDto) {
-    const passport = await this.passportRepository.create(createPassportDto);
+  async create(dto: CreatePassportDto) {
+    const passport = await this.passportRepository.save(dto);
     return passport;
   }
 
   async findAll() {
-    const currencies = await this.passportRepository.find();
-    return currencies;
+    const passports = await this.passportRepository.find();
+    return passports;
   }
 
   async findOne(id: string) {

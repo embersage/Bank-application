@@ -7,8 +7,8 @@ export class OperationsController {
   constructor(private readonly operationsService: OperationsService) {}
 
   @Post()
-  create(@Body() createOperationDto: CreateOperationDto) {
-    return this.operationsService.create(createOperationDto);
+  create(@Body() dto: CreateOperationDto) {
+    return this.operationsService.create(dto);
   }
 
   @Get()

@@ -7,8 +7,8 @@ export class CardsController {
   constructor(private readonly cardsService: CardsService) {}
 
   @Post()
-  create(@Body() createCardDto: CreateCardDto) {
-    return this.cardsService.create(createCardDto);
+  create(@Body() dto: CreateCardDto) {
+    return this.cardsService.create(dto);
   }
 
   @Get()

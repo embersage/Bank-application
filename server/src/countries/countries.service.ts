@@ -11,8 +11,8 @@ export class CountriesService {
     private countriesRepository: Repository<Country>,
   ) {}
 
-  async create(createCountryDto: CreateCountryDto) {
-    const country = await this.countriesRepository.create(createCountryDto);
+  async create(dto: CreateCountryDto) {
+    const country = await this.countriesRepository.save(dto);
     return country;
   }
 
@@ -22,7 +22,7 @@ export class CountriesService {
   }
 
   async findOne(id: string) {
-    const country = this.countriesRepository.findOneBy({ id });
+    const country = await this.countriesRepository.findOneBy({ id });
     return country;
   }
 

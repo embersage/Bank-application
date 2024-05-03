@@ -3,17 +3,28 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateOperationDto } from './dto/create-operation.dto';
 import { Operation } from './operation.entity';
+import { AccountsService } from 'src/accounts/accounts.service';
+import { OperationTypesService } from 'src/operationTypes/operationTypes.service';
 
 @Injectable()
 export class OperationsService {
   constructor(
     @InjectRepository(Operation)
     private operationsRepository: Repository<Operation>,
+    private accountsService: AccountsService,
+    private operationTypesService: OperationTypesService,
   ) {}
 
-  async create(createOperationDto: CreateOperationDto) {
-    const operation =
-      await this.operationsRepository.create(createOperationDto);
+  async create(dto: CreateOperationDto) {
+    const account = await this.accountsService.findOne(dto.accountId);
+    const operationType = await this.operationTypesService.findOne(
+      dto.operationTypeId,
+    );
+    const operation = await this.operationsRepository.save({
+      ...dto,
+      account,
+      operationType,
+    });
     return operation;
   }
 

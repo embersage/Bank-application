@@ -8,7 +8,7 @@ import {
   Relation,
 } from 'typeorm';
 
-@Entity({ name: 'operationTypes' })
+@Entity({ name: 'operation_types' })
 export class OperationType {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -22,6 +22,6 @@ export class OperationType {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => OperationType, (type) => type.operations)
+  @OneToMany(() => OperationType, (operationType) => operationType.operations)
   operations!: Relation<OperationType>[];
 }

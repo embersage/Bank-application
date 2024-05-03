@@ -24,12 +24,11 @@ export class City {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => City, (city) => city.addresses)
-  addresses!: Relation<City>[];
-
   @OneToMany(() => City, (city) => city.streets)
   streets!: Relation<City>[];
 
-  @ManyToOne(() => Province, (province) => province.cities)
-  country!: Relation<Province>;
+  @ManyToOne(() => Province, (province) => province.cities, {
+    onDelete: 'CASCADE',
+  })
+  province!: Relation<Province>;
 }

@@ -4,7 +4,6 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
   Relation,
   ManyToOne,
 } from 'typeorm';
@@ -15,7 +14,7 @@ export class Street {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'varchar', nullable: false, unique: true })
+  @Column({ type: 'varchar', nullable: false })
   name: string;
 
   @CreateDateColumn()
@@ -24,9 +23,6 @@ export class Street {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(() => Street, (street) => street.addresses)
-  addresses!: Relation<Street>[];
-
-  @ManyToOne(() => City, (province) => province.streets)
-  province!: Relation<City>;
+  @ManyToOne(() => City, (city) => city.streets, { onDelete: 'CASCADE' })
+  city!: Relation<City>;
 }

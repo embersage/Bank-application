@@ -11,8 +11,8 @@ export class CurrenciesService {
     private currenciesRepository: Repository<Currency>,
   ) {}
 
-  async create(createCurrencyDto: CreateCurrencyDto) {
-    const currency = await this.currenciesRepository.create(createCurrencyDto);
+  async create(dto: CreateCurrencyDto) {
+    const currency = await this.currenciesRepository.save(dto);
     return currency;
   }
 
@@ -22,7 +22,7 @@ export class CurrenciesService {
   }
 
   async findOne(id: string) {
-    const currency = this.currenciesRepository.findOneBy({ id });
+    const currency = await this.currenciesRepository.findOneBy({ id });
     return currency;
   }
 

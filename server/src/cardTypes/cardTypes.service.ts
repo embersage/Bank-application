@@ -8,26 +8,26 @@ import { CardType } from './cardType.entity';
 export class CardTypesService {
   constructor(
     @InjectRepository(CardType)
-    private typesRepository: Repository<CardType>,
+    private cardTypesRepository: Repository<CardType>,
   ) {}
 
-  async create(createTypeDto: CreateCardTypeDto) {
-    const type = await this.typesRepository.create(createTypeDto);
-    return type;
+  async create(dto: CreateCardTypeDto) {
+    const cardType = await this.cardTypesRepository.save(dto);
+    return cardType;
   }
 
   async findAll() {
-    const types = await this.typesRepository.find();
-    return types;
+    const cardTypes = await this.cardTypesRepository.find();
+    return cardTypes;
   }
 
   async findOne(id: string) {
-    const type = this.typesRepository.findOneBy({ id });
-    return type;
+    const cardType = await this.cardTypesRepository.findOneBy({ id });
+    return cardType;
   }
 
   async remove(id: string) {
-    const type = await this.typesRepository.delete(id);
-    return type;
+    const cardType = await this.cardTypesRepository.delete(id);
+    return cardType;
   }
 }
