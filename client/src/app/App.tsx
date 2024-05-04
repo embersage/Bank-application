@@ -1,5 +1,14 @@
+import { attachLogger } from 'effector-logger';
+import Authorization from '../pages/Authorization';
+
+attachLogger();
+
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <Authorization />
+    </>
+  );
 };
 
 export default App;

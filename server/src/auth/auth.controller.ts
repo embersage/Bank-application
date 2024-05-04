@@ -7,6 +7,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { CreateUserDto } from 'src/users/dto/create-user.dto';
+import { ValidateUserDto } from 'src/users/dto/validate-user.dto';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 
@@ -15,7 +16,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('/login')
-  login(@Body() dto: CreateUserDto) {
+  login(@Body() dto: ValidateUserDto) {
     return this.authService.login(dto);
   }
 

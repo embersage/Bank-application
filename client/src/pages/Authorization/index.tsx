@@ -1,5 +1,11 @@
+import { AuthorizationBlock } from '../../widgets/AuthorizationBlock';
+
 const Authorization = () => {
-  return <></>;
+  return (
+    <>
+      <AuthorizationBlock />
+    </>
+  );
 };
 
 export default Authorization;
