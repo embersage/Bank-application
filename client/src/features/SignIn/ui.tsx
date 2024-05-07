@@ -30,7 +30,7 @@ export const SignIn: FC = () => {
         />
       </Stack>
       <Button
-        variant="outlined"
+        variant="contained"
         endIcon={<LoginIcon />}
         onClick={async () => {
           await loginFx({ email: userData.email, password: userData.password });
